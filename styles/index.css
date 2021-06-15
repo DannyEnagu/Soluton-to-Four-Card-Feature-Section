@@ -1,0 +1,138 @@
+/* CSS style sheet */
+/* Design Pattern is Mobile First */
+
+:root {
+  --text-opacity: 0.4;
+  --Red-color: hsl(0, 78%, 62%);
+  --Cyan-color: hsl(180, 62%, 55%);
+  --Orange-color: hsl(34, 97%, 64%);
+  --Blue-color: hsl(212, 86%, 64%);
+}
+
+/* General style for all element */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(247, 247, 247);
+  font-family: Poppins, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  font-size: 15px;
+}
+
+header {
+  text-align: center;
+}
+
+#page-title {
+  opacity: 0.4;
+  font-size: 25px;
+  font-weight: 200;
+}
+
+#sub-title {
+  font-size: 25px;
+  opacity: 0.8;
+}
+.services {
+  opacity: var(--text-opacity);
+  margin: 1rem 0 5rem 0;
+}
+
+#members {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Here each card is seen as a member of the team */
+/* general style for all cards on the page */
+#members .card {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 1.5rem;
+  text-align: left;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#supervisor {
+  border-top: 4px solid var(--Cyan-color);
+}
+
+#team-builder {
+  border-top: 4px solid var(--Red-color);
+}
+#karma {
+  border-top: 4px solid var(--Orange-color);
+}
+#calculator {
+  border-top: 4px solid var(--Blue-color);
+}
+/* Scale up the cards on Mouse hover */
+.cards-wrapper .card:hover,
+.cards-wrapper .card:focus {
+  transform: scale(1.01);
+}
+
+.cards-wrapper h3 {
+  opacity: 0.6;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.cards-wrapper .card-txt {
+  opacity: var(--text-opacity);
+}
+
+.cards-wrapper .icon {
+  margin: 3rem 0 0 0;
+  float: right;
+}
+
+/* Medium and Large Viewport */
+
+@media (min-width: 768px) {
+  #page-title,
+  #sub-title {
+    font-size: 30px;
+  }
+
+  #members {
+    grid-template-areas:
+      "   .        team-bulder   .  "
+      "supervisor  team-bulder   calculator "
+      "supervisor  karma         calculator"
+      "   .        karma         .     ";
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  #supervisor {
+    grid-area: supervisor;
+  }
+  #team-builder {
+    grid-area: team-bulder;
+  }
+  #calculator {
+    grid-area: calculator;
+  }
+  #karma {
+    grid-area: karma;
+  }
+}
+/* footer stles */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
